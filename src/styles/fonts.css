@@ -1,0 +1,19 @@
+@font-face {
+	font-family: DidotLTPro-Headline;
+	src: url('../assets/fonts/DidotLTStd-Headline.otf');
+}
+
+@font-face {
+	font-family: Montserrat-Regular;
+	src: url('../assets/fonts/montserrat-regular.ttf');
+}
+
+@font-face {
+	font-family: Montserrat-Thin;
+	src: url('../assets/fonts/montserrat-thin.ttf');
+}
+
+@font-face {
+	font-family: Montserrat-Light;
+	src: url('../assets/fonts/montserrat-light.ttf');
+}

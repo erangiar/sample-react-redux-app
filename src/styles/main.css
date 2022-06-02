@@ -1,0 +1,133 @@
+body {
+  background-color: black !important;
+  color: white !important;
+}
+
+#parallelogram {
+  width: 550px;
+  height: 100px;
+  transform: skew(-20deg);
+  background: white;
+}
+
+#triangle {
+  width: 0;
+  height: 0;
+  border-top: 120px solid white;
+  border-right: 50px solid transparent;
+}
+
+.trapezoid {
+	border-bottom: 50px solid rgb(255, 255, 255);
+	border-left: 15px solid transparent;
+	border-right: 0px solid transparent;
+	height: 0;
+	width: 260px;
+    color: black;
+    transform: skew(20deg);
+}
+
+.trapezoid:hover {
+    border-bottom: 50px solid rgb(0, 0, 0);
+	border-left: 15px solid transparent;
+	border-right: 0px solid transparent;   
+    color: white;
+}
+
+.line {
+	border-left: 1px solid rgb(255, 255, 255);
+    transform: skew(-20deg);
+}
+
+.trapezoid span{
+	margin:15px;
+      position: absolute;
+      font-family: 'Montserrat-Regular';
+      font-size: 14px;
+      width: 210px;
+    text-align: center;
+
+}
+
+.white-div {
+  background: white;
+  height: 120px;
+}
+
+@media (max-width: 1480px) {
+  .white-div {
+    height: 150px;
+  }
+  #triangle {
+    border-top: 150px solid white;
+  }
+}
+
+.title {
+  font-size: 50px;
+  line-height: 50px;
+  font-family: "DidotLTPro-Headline";
+  color: black;
+}
+
+.desc {
+  font-size: 13px;
+  font-family: "Montserrat-Thin";
+  color: black;
+}
+
+.heading {
+  font-size: 14px;
+  font-family: "Montserrat-Regular";
+}
+
+.light-text {
+  font-size: 16px;
+  font-family: "Montserrat-Thin";
+  margin-bottom: 0.5rem;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.error {
+  font-size: 11px !important;
+  font-family: "Montserrat-Light" !important;
+  color: #d32f2f;
+  padding: 0;
+}
+
+.MuiInputLabel-formControl,
+.MuiInputLabel-shrink,
+.MuiInput-input, .MuiFormControlLabel-label{
+  font-size: 14px !important;
+  font-family: "Montserrat-Thin" !important;
+}
+
+.MuiFormHelperText-root {
+  font-size: 11px !important;
+  font-family: "Montserrat-Light" !important;
+}
+
+.MuiInputLabel-formControl,
+.MuiInput-input,
+.MuiIconButton-root {
+  color: white !important;
+}
+
+.MuiInput-root::before {
+  border-bottom: 1px solid white !important;
+}
+
+.MuiInput-root::after {
+  border-bottom: 1px solid #64c9d1 !important;
+}
+
+.Mui-checked {
+  color: #64c9d1 !important;
+}

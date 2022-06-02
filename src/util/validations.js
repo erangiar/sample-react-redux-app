@@ -1,10 +1,13 @@
-export default function validate(values) {
+import ErrorIcon from '@mui/icons-material/Error';
+
+export default function validate(values,labels) {
     const errors = {};
     const requiredFields = [
       'firstName',
       'lastName',
       'email',
-      'favoriteColor',
+      'mobileNumber',
+      'country',
       'notes',
     ];
     requiredFields.forEach(field => {
