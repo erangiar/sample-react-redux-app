@@ -3,11 +3,12 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { getCountries } from "../../api/addressApi";
 import { formValueSelector } from "redux-form";
-import OrderForm from "../../containers/FieldLevelValidationForm";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 export default function RenderSelectField({
   input,
+  required,
+  name,
   label,
   meta,
   children,
@@ -15,6 +16,8 @@ export default function RenderSelectField({
 }) {
   console.log(meta);
   const [countries, setCountries] = React.useState([]);
+  const forms = useSelector((state) => state.form);
+
   React.useEffect(() => {
     loadCountries();
   }, []);
@@ -40,20 +43,21 @@ export default function RenderSelectField({
       <Autocomplete
         {...defaultProps}
         id="disable-clearable"
-        clearOnEscape
+        disableClearable
         renderInput={(params) => (
           <TextField
             {...params}
-            error={meta.error ? true : false}
-            label={label}
+           // error={meta.error ? true : false}
+            label={required?label+'*':label}
             variant="standard"
           />
         )}
         onChange={(event, index, value) => input.onChange(index.name.common)}
       />
-      {
-        //  meta.error&& (<p className='error'>{meta.error}</p>)
-      }
+      
+{
+  // forms.OrderForm.syncErrors.name&& (<p className='error'>{forms.OrderForm.syncErrors.name}</p>)
+}      
     </div>
   );
 }

@@ -4,7 +4,7 @@ export default function Header() {
 
   return (
     <div >
-        <img src={imageUrl} alt='Hello'></img>
+        <img src={imageUrl} alt='' width='100%'></img>
      
     
     </div>

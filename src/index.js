@@ -4,12 +4,13 @@ import { Provider } from 'react-redux';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import store from './app/store';
-import OrderForm from './containers/FieldLevelValidationForm';
 import "./styles/main.css";
 import "./styles/main.scss";
 import './styles/fonts.css';
 import MainTitle from './components/MainTitle';
 import Header from './components/Header';
+import NavBar from './components/NavBar';
+import OrderContainer from './containers/OrderContainer';
 
 
 const rootEl = document.getElementById('root');
@@ -18,12 +19,11 @@ const rootEl = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider muiTheme={getMuiTheme()}>
-      <div>
+      <div style={{overflowX:'hidden'}}>
+        <NavBar/>
         <Header/>
-    <MainTitle title={'Order Details'} desc={'Ready to join the world’s most ambitious luxury marketplace?'}/>
       <div>
-        <OrderForm 
-        onSubmit={console.log('su')} 
+        <OrderContainer 
         />
       </div>
       </div>

@@ -17,6 +17,24 @@ body {
   border-right: 50px solid transparent;
 }
 
+.main-div {
+	padding: 2rem 36rem 0rem 18rem;
+    position: relative;
+}
+
+.custom-button{
+    transform: skew(20deg);
+    background: white;
+    color: black;
+    padding: .7rem;
+    width: 260px;
+    text-align: center;
+    border: 2px solid white;
+    font-family: 'Montserrat-Regular';
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
 .trapezoid {
 	border-bottom: 50px solid rgb(255, 255, 255);
 	border-left: 15px solid transparent;
@@ -27,10 +45,9 @@ body {
     transform: skew(20deg);
 }
 
-.trapezoid:hover {
-    border-bottom: 50px solid rgb(0, 0, 0);
-	border-left: 15px solid transparent;
-	border-right: 0px solid transparent;   
+.custom-button:hover {
+    border: 2px solid white;
+	background-color: black;
     color: white;
 }
 
@@ -68,6 +85,7 @@ body {
   line-height: 50px;
   font-family: "DidotLTPro-Headline";
   color: black;
+  text-transform: capitalize;
 }
 
 .desc {
@@ -102,6 +120,22 @@ body {
   padding: 0;
 }
 
+.nav-bar {
+    margin: 0rem 5rem;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Montserrat-Regular';
+text-transform: uppercase;
+  }
+
+  .sticky {
+    z-index: 1;
+    position: fixed;
+    top: 20px;
+    width: 90%;
+    box-shadow: 0px 0.2rem 0.2rem 0px rgb(0 0 0 / 40%) !important;
+}
+
 .MuiInputLabel-formControl,
 .MuiInputLabel-shrink,
 .MuiInput-input, .MuiFormControlLabel-label{
@@ -130,4 +164,8 @@ body {
 
 .Mui-checked {
   color: #64c9d1 !important;
+}
+
+.search>div>div>div>button>svg {
+	display: none;
 }

@@ -6,7 +6,7 @@ export default function MainTitle(props) {
         
       <Col md={6} className="p-0">
         <div className="mb-5 p-4 white-div">
-        <div style={{paddingLeft:'19rem'}}> 
+        <div style={{paddingLeft:'17rem'}}> 
         <div className="title">{props.title}</div>
           <div className="desc">{props.desc}</div>
          </div>

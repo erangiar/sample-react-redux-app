@@ -12,7 +12,7 @@ export default function RenderSearchField({
   ...custom
 }) {
   const [searchResults, setSearchResults] = React.useState([]);
-  
+
   const forms = useSelector((state) => state.form);
 
   const defaultProps = {
@@ -21,16 +21,16 @@ export default function RenderSearchField({
       `${option.properties.address_line1},${option.properties.address_line2}`,
   };
 
-
   async function searchAddress(value) {
-    console.log(forms.OrderForm.values.country);
+    if(value.length>=4){
     await getAddress(value, `,${forms.OrderForm.values.country}`)
       .then((res) => {
         setSearchResults(res.data.features);
       })
-      .catch(() => {
-        //setLoading(false);
+      .catch((e) => {
+        throw e;
       });
+    }
   }
 
   return (
@@ -38,26 +38,24 @@ export default function RenderSearchField({
       <Autocomplete
         {...defaultProps}
         id="disable-clearable"
+        className='search'
         clearOnEscape
         renderInput={(params) => (
           <TextField
             {...params}
             error={meta.error ? true : false}
-            onChange={(e) =>searchAddress(e.target.value)}
+            onChange={(e) => searchAddress(e.target.value)}
             variant="standard"
             placeholder={label}
-           // {...input}
-
+            // {...input}
           />
         )}
         filterOptions={(x) => x}
         onChange={(event, index, value) => input.onChange(index)}
       />
       {
-        //  meta.error&& (<p className='error'>{meta.error}</p>)
+        // meta.touched&& forms.OrderForm.syncErrors.label&& (<p className='error'>{forms.OrderForm.syncErrors.label}</p>)
       }
     </div>
   );
 }
-
-
