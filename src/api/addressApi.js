@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//load all countries
 export async function getCountries() {
   return new Promise((resolve, reject) => {
     axios
@@ -8,12 +9,12 @@ export async function getCountries() {
         resolve(data);
       })
       .catch((err) => {
-        // console.log("[api-org-management]:[listPartiesOperation]  ERROR", err);
         reject(Error(err));
       });
   });
 }
 
+//search for address suggestions with the given search term
 export async function getAddress(searchTerm, country) {
   return new Promise((resolve, reject) => {
     var config = {
@@ -25,11 +26,9 @@ export async function getAddress(searchTerm, country) {
     axios(config)
       .then(function (response) {
         resolve(response);
-        console.log(response.data);
       })
       .catch(function (error) {
         reject(Error(error));
-        console.log(error);
       });
   });
 }

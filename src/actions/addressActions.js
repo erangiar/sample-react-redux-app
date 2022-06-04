@@ -1,5 +1,6 @@
 import { change } from "redux-form";
 
+//store address details in 'OrderForm' redux form
 export function setAddressDetails(dispatch, searchTerm) {
   dispatch(change("OrderForm", "address1", searchTerm.properties.address_line1));
   dispatch(change("OrderForm", "address2", searchTerm.properties.address_line2));

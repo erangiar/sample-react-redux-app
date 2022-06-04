@@ -1,11 +1,10 @@
 import { ErrorOutline } from "@mui/icons-material";
 import { Box } from "@mui/material";
 
-export default function Error(props) {
+export default function Error({msg,setContext}) {
   return (
     <Box
       sx={{
-        //  display: "flex",
         justifyContent: "center",
         margin: "10rem",
         color: "red",
@@ -20,10 +19,10 @@ export default function Error(props) {
           marginBottom: "2rem",
         }}
       >
-        {props.msg}
+        {msg}
       </div>
 
-      <div
+      <div className='mb-5'
         style={{
           fontFamily: "Montserrat-Thin",
           fontSize: "1.5rem",
@@ -31,6 +30,7 @@ export default function Error(props) {
       >
         Please try again in a moment
       </div>
+      <button className='custom-button' onClick={()=>setContext('order_form')}>Go Back</button>
     </Box>
   );
 }

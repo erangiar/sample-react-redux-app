@@ -22,17 +22,15 @@ export default function RenderSearchField({
   };
 
   async function searchAddress(value) {
-    if(value.length>=4){
-    await getAddress(value, `,${forms.OrderForm.values.country}`)
-      .then((res) => {
-        setSearchResults(res.data.features);
-      })
-      .catch((e) => {
-        throw e;
-      });
-    }else 
-    setSearchResults([]);
-
+    if (value.length >= 4) {
+      await getAddress(value, `,${forms.OrderForm.values.country}`)
+        .then((res) => {
+          setSearchResults(res.data.features);
+        })
+        .catch((e) => {
+          throw e;
+        });
+    } else setSearchResults([]);
   }
 
   return (
@@ -40,7 +38,7 @@ export default function RenderSearchField({
       <Autocomplete
         {...defaultProps}
         id="disable-clearable"
-        className='search'
+        className="search"
         clearOnEscape
         renderInput={(params) => (
           <TextField
@@ -49,10 +47,9 @@ export default function RenderSearchField({
             onChange={(e) => searchAddress(e.target.value)}
             variant="standard"
             placeholder={label}
-            // {...input}
           />
         )}
-        noOptionsText='No results found'
+        noOptionsText="No results found"
         filterOptions={(x) => x}
         onChange={(event, index, value) => input.onChange(index)}
       />

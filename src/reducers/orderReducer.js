@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    firstName: null,
-    lastName: null,
-    email: null,
-    mobileNumber: null,
-    country:null,
-    address1:null,
-    address2:null,
-    city:null,
-    state:null,
-    postalCode:null,
+  firstName: null,
+  lastName: null,
+  email: null,
+  mobileNumber: null,
+  country: null,
+  address1: null,
+  address2: null,
+  city: null,
+  state: null,
+  postalCode: null,
 };
 
 export const orderReducer = createSlice({
@@ -19,7 +19,7 @@ export const orderReducer = createSlice({
   reducers: {
     setOrderDetails: (state, action) => {
       return Object.assign({}, state, action.payload);
-    }
+    },
   },
 });
 

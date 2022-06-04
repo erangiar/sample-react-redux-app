@@ -18,54 +18,44 @@ body {
 }
 
 .main-div {
-	padding: 2rem 36rem 0rem 18rem;
-    position: relative;
+  padding: 1% 40% 0 15%;
+  position: relative;
 }
 
-.custom-button{
-    transform: skew(20deg);
-    background: white;
-    color: black;
-    padding: .7rem;
-    width: 260px;
-    text-align: center;
-    border: 2px solid white;
-    font-family: 'Montserrat-Regular';
-    font-size: 14px;
-    text-transform: uppercase;
-    border: none;
-
-   
-}
-
-.trapezoid {
-	border-bottom: 50px solid rgb(255, 255, 255);
-	border-left: 15px solid transparent;
-	border-right: 0px solid transparent;
-	height: 0;
-	width: 260px;
-    color: black;
-    transform: skew(20deg);
+.custom-button {
+  transform: skew(20deg);
+  background: white;
+  color: black;
+  padding: 0.9rem;
+  width: 230px;
+  text-align: center;
+  border: none;
+  font-family: "Montserrat-Regular";
+  font-size: 14px;
+  text-transform: uppercase;
+  border: none;
+  -webkit-transform: perspective(300px) rotateX(30deg);
+  -o-transform: perspective(300px) rotateX(30deg);
+  -moz-transform: perspective(300px) rotateX(30deg);
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -o-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
 }
 
 .custom-button:hover {
-    border: 2px solid white;
-	background-color: black;
-    color: white;
+  border: 2px solid white;
+  background-color: black;
+  color: white;
 }
 
 .line {
-	border-left: 1px solid rgb(255, 255, 255);
-    transform: skew(-20deg);
+  border-left: 1px solid rgb(255, 255, 255);
+  transform: skew(-20deg);
 }
 
-.trapezoid span{
-	margin:15px;
-      position: absolute;
-      font-family: 'Montserrat-Regular';
-      font-size: 14px;
-      width: 210px;
-    text-align: center;
+.custom-button span {
+    transform: skew(20deg);
 
 }
 
@@ -124,24 +114,25 @@ body {
 }
 
 .nav-bar {
-    margin: 0rem 5rem;
-    text-align: center;
-    font-size: 12px;
-    font-family: 'Montserrat-Regular';
-text-transform: uppercase;
-  }
+  margin: 0rem 5.5rem;
+  text-align: center;
+  font-size: 12px;
+  font-family: "Montserrat-Regular";
+  text-transform: uppercase;
+}
 
-  .sticky {
-    z-index: 1;
-    position: fixed;
-    top: 20px;
-    width: 90%;
-    box-shadow: 0px 0.2rem 0.2rem 0px rgb(0 0 0 / 40%) !important;
+.sticky {
+  z-index: 1;
+  position: fixed;
+  top: 20px;
+  width: 90%;
+  box-shadow: 0px 0.2rem 0.2rem 0px rgb(0 0 0 / 40%) !important;
 }
 
 .MuiInputLabel-formControl,
 .MuiInputLabel-shrink,
-.MuiInput-input, .MuiFormControlLabel-label{
+.MuiInput-input,
+.MuiFormControlLabel-label {
   font-size: 14px !important;
   font-family: "Montserrat-Thin" !important;
 }
@@ -169,20 +160,36 @@ text-transform: uppercase;
   color: #64c9d1 !important;
 }
 
-.MuiAutocomplete-listbox, .MuiAutocomplete-noOptions{
-    background-color: black !important;
-    color: white !important;
-    font-family: "Montserrat-Thin" !important;
-    font-size: 14px !important;
-
-  }
-
-  .MuiAutocomplete-option:hover	,.MuiAutocomplete-noOptions:hover{
-    background-color: white !important;
-    color: black !important;
-  }
-
-.search>div>div>div>button>svg {
-	display: none;
+.MuiAutocomplete-listbox,
+.MuiAutocomplete-noOptions {
+  background-color: black !important;
+  color: white !important;
+  font-family: "Montserrat-Thin" !important;
+  font-size: 14px !important;
 }
 
+.MuiAutocomplete-option:hover,
+.MuiAutocomplete-noOptions:hover {
+  background-color: white !important;
+  color: black !important;
+}
+
+.search > div > div > div > button > svg {
+  display: none;
+}
+
+.shape {
+  -webkit-transform: perspective(300px) rotateX(30deg);
+
+  -o-transform: perspective(300px) rotateX(30deg);
+
+  -moz-transform: perspective(300px) rotateX(30deg);
+
+  -webkit-transform-origin: 100% 50%;
+
+  -moz-transform-origin: 100% 50%;
+
+  -o-transform-origin: 100% 50%;
+
+  transform-origin: 100% 50%;
+}

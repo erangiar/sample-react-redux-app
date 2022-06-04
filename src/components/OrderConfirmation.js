@@ -114,8 +114,8 @@ export default function OrderConfirmation() {
               {orderDetails.preferences.map((p) => {
                 return <Col className="light-text mb-1">{p}</Col>;
               })}
-              {orderDetails.preferences.length===0&&(
-                 <Col className="light-text mb-1">None</Col>
+              {orderDetails.preferences.length === 0 && (
+                <Col className="light-text mb-1">None</Col>
               )}
             </Row>
           </Col>
