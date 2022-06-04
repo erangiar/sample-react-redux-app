@@ -9,11 +9,26 @@
 }
 
 @font-face {
-	font-family: Montserrat-Thin;
-	src: url('../assets/fonts/montserrat-thin.ttf');
+	font-family: Montserrat-Light;
+	src: url('../assets/fonts/montserrat-light.ttf');
+}
+
+@font-face {
+	font-family: Montserrat-SemiBold;
+	src: url('../assets/fonts/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+	font-family: Montserrat-Bold;
+	src: url('../assets/fonts/Montserrat-Bold.ttf');
 }
 
 @font-face {
 	font-family: Montserrat-Light;
 	src: url('../assets/fonts/montserrat-light.ttf');
+}
+
+@font-face {
+	font-family: Montserrat-Thin;
+	src: url('../assets/fonts/montserrat-thin.ttf');
 }

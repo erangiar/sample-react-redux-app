@@ -178,18 +178,3 @@ body {
   display: none;
 }
 
-.shape {
-  -webkit-transform: perspective(300px) rotateX(30deg);
-
-  -o-transform: perspective(300px) rotateX(30deg);
-
-  -moz-transform: perspective(300px) rotateX(30deg);
-
-  -webkit-transform-origin: 100% 50%;
-
-  -moz-transform-origin: 100% 50%;
-
-  -o-transform-origin: 100% 50%;
-
-  transform-origin: 100% 50%;
-}

@@ -40,7 +40,7 @@ let OrderForm = ({ search, setLoader, setError, setContext }) => {
       //enables the loader
       setLoader(true);
       //user details submission
-      await submitUserDetails("fail")
+      await submitUserDetails("success")
         .then((res) => {
           code = res.code;
           console.log(res);
