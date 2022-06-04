@@ -17,63 +17,82 @@ import RenderSearchField from "./form-elements/renderSearchField";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { populateForm, setAddressDetails } from "../actions/addressActions";
 import MainTitle from "./MainTitle";
-import { viewOrderDetails } from "../actions/orderActions";
+import { setOrder, viewOrderDetails } from "../actions/orderActions";
 import Error from "@mui/icons-material/Error";
-import { submitAddress, submitPrefferences, submitUserDetails } from "../api/orderApi.js.js";
+import {
+  submitAddress,
+  submitPrefferences,
+  submitUserDetails,
+} from "../api/orderApi.js.js";
+import { setOrderDetails } from "../reducers/orderReducer";
 
-let OrderForm = (props) => {
-  const { submitting } = props;
-  const { search } = props;
+let OrderForm = ({ search, setLoader, setError, setContext }) => {
+  //const { search } = props;
   const dispatch = useDispatch();
   const forms = useSelector((state) => state.form);
   const [isSubmitted, setSubmitted] = React.useState(false);
-
 
   React.useEffect(() => {
     if (search) {
       setAddressDetails(dispatch, search);
     }
+
   }, [dispatch, search]);
 
-  React.useEffect(() => {
-    if (forms.OrderForm.values) {
-      populateForm(forms.OrderForm.values);
-    }
-  }, []);
-
   async function submitOrder(order) {
-    let code=false;
+    let code = false;
     setSubmitted(true);
-    await submitUserDetails()
-    .then((res) => {
-     console.log(res);
-     code=res.code;
-     
-    })
-    .catch((e) => {
-      throw e;
-    });
-    
-    if(code===200){
-      await submitAddress().then((res) => {
-        console.log(res);        
-       })
-       .catch((e) => {
-         throw e;
-       });
-      await submitPrefferences().then((res) => {
-        console.log(res);
-       })
-       .catch((e) => {
-         throw e;
-       });
-     }
-   
-    
+    if (!forms.OrderForm.syncErrors) {
+      setOrder(dispatch, forms.OrderForm.values);
+      setLoader(true);
+
+      await submitUserDetails('fail')
+        .then((res) => {
+          code = res.code;
+          console.log(res);
+        })
+        .catch((e) => {
+          setLoader(false);
+          setError("There appears to be a problem with the system");
+
+        });
+    }
+
+    if (code === 200) {
+      await submitAddress()
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => {
+          setLoader(false);
+          setError("There appears to be a problem with the system");
+
+        });
+      await submitPrefferences()
+        .then((res) => {
+          console.log(res);
+          setLoader(false);
+          setContext("order_summary");
+        })
+        .catch((e) => {
+          setLoader(false);
+          setError("There appears to be a problem with the system");
+
+        });
+    } else {
+      setLoader(false);
+      setContext("error");
+      setError("There appears to be a problem with the system");
+
+    }
   }
 
   const renderError = (input) => {
-    if (isSubmitted && forms.OrderForm.syncErrors[input]) {
+    if (
+      isSubmitted &&
+      forms.OrderForm.syncErrors &&
+      forms.OrderForm.syncErrors[input]
+    ) {
       return (
         <div>
           <span className="error">
@@ -117,7 +136,6 @@ let OrderForm = (props) => {
                 component={renderTextField}
                 label="Last Name"
                 required={true}
-
               />
               {renderError("lastName")}
             </div>
@@ -132,7 +150,6 @@ let OrderForm = (props) => {
                 component={renderTextField}
                 label="Email Address"
                 required={true}
-
               />
               {renderError("email")}
             </div>
@@ -145,7 +162,6 @@ let OrderForm = (props) => {
                 component={renderTextField}
                 label="Mobile Number"
                 required={true}
-
               />
               {renderError("mobileNumber")}
             </div>
@@ -163,7 +179,6 @@ let OrderForm = (props) => {
                 label="Country"
                 type="select"
                 required={true}
-
               ></Field>
               {renderError("country")}
             </div>
@@ -188,7 +203,6 @@ let OrderForm = (props) => {
                 component={renderTextField}
                 label="Address Line 1"
                 required={true}
-
               />
               {renderError("address1")}
             </div>
@@ -201,7 +215,6 @@ let OrderForm = (props) => {
                 component={renderTextField}
                 label="Address Line 2"
                 required={true}
-
               />
               {renderError("address2")}
             </div>
@@ -216,7 +229,6 @@ let OrderForm = (props) => {
                 component={renderTextField}
                 label="Town/City"
                 required={true}
-
               />
               {renderError("city")}
             </div>
@@ -229,7 +241,6 @@ let OrderForm = (props) => {
                 component={renderTextField}
                 label="County/Province/State"
                 required={true}
-
               />
               {renderError("state")}
             </div>
@@ -244,7 +255,6 @@ let OrderForm = (props) => {
                 component={renderTextField}
                 label="Postal Code"
                 required={true}
-
               />
               {renderError("postalCode")}
             </div>
@@ -285,7 +295,6 @@ let OrderForm = (props) => {
           <button
             className="custom-button mt-3 mx-3"
             onClick={() => submitOrder(forms.OrderForm.values)}
-            disabled={submitting}
             type="submit"
           >
             Save

@@ -2,13 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import { reducer as reduxFormReducer } from 'redux-form';
 import orderReducer from '../reducers/orderReducer';
+import { createStore, combineReducers } from 'redux';
 
- const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    form: reduxFormReducer,
-    order:orderReducer
-  },
+const reducer = combineReducers({
+  form: reduxFormReducer, // mounted under "form"
+  order:orderReducer
 });
+const store = (createStore)(reducer);
 
 export default store;

@@ -52,6 +52,7 @@ export default function RenderSelectField({
             variant="standard"
           />
         )}
+        noOptionsText='No results found'
         onChange={(event, index, value) => input.onChange(index.name.common)}
       />
       

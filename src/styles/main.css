@@ -33,6 +33,9 @@ body {
     font-family: 'Montserrat-Regular';
     font-size: 14px;
     text-transform: uppercase;
+    border: none;
+
+   
 }
 
 .trapezoid {
@@ -166,6 +169,20 @@ text-transform: uppercase;
   color: #64c9d1 !important;
 }
 
+.MuiAutocomplete-listbox, .MuiAutocomplete-noOptions{
+    background-color: black !important;
+    color: white !important;
+    font-family: "Montserrat-Thin" !important;
+    font-size: 14px !important;
+
+  }
+
+  .MuiAutocomplete-option:hover	,.MuiAutocomplete-noOptions:hover{
+    background-color: white !important;
+    color: black !important;
+  }
+
 .search>div>div>div>button>svg {
 	display: none;
 }
+

@@ -1,12 +1,17 @@
 
-
-export async function submitUserDetails() {
+export async function submitUserDetails(param) {
   return new Promise((resolve, reject) => {
     try {
-      setTimeout(() => {
-        resolve({code:200, message:'User details added successfully'});
-
-      }, 4000);
+      if (param === "success") {
+        setTimeout(() => {
+          resolve({ code: 200, message: "User details added successfully" });
+        }, 3000);
+      } else if (param === "fail") {
+        setTimeout(() => {
+          resolve({ code: 500, message: "Internal server error" });
+                }, 3000);
+      }
+      
     } catch (error) {
       reject(Error(error));
     }
@@ -17,8 +22,7 @@ export async function submitAddress() {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        resolve({code:200, message:'User address added successfully'});
-
+        resolve({ code: 200, message: "User address added successfully" });
       }, 3000);
     } catch (error) {
       reject(Error(error));
@@ -30,8 +34,7 @@ export async function submitPrefferences() {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        resolve({code:200, message:'User prefferences added successfully'});
-
+        resolve({ code: 200, message: "User prefferences added successfully" });
       }, 3000);
     } catch (error) {
       reject(Error(error));

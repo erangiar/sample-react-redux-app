@@ -30,7 +30,9 @@ export default function RenderSearchField({
       .catch((e) => {
         throw e;
       });
-    }
+    }else 
+    setSearchResults([]);
+
   }
 
   return (
@@ -50,6 +52,7 @@ export default function RenderSearchField({
             // {...input}
           />
         )}
+        noOptionsText='No results found'
         filterOptions={(x) => x}
         onChange={(event, index, value) => input.onChange(index)}
       />
